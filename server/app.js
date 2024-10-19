@@ -31,10 +31,8 @@ app.use("/api/experience",experienceRoute);
 app.use("/api/message",messageRoute);
 
 // Handle __dirname in ES module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// Serve static files from the React app
+const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
 // The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
